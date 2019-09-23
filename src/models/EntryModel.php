@@ -8,10 +8,11 @@ use Krugozor\Database\Mysql\Mysql;
 
 class EntryModel
 {
-    public function getList($page = 1, $sortDirection = 'asc', $sortBy)
+    public function getList($page = 1, $sortDirection = 'asc', $sortBy = null)
     {
         $limit = 3;
         $offset = $limit * ($page - 1);
+
         /* @var $db Mysql */
         $db = Application::$container->get('db');
         $sorting = $sortBy ? "ORDER BY $sortBy $sortDirection" : null;
@@ -49,7 +50,6 @@ class EntryModel
         ];
 
         $db->query('INSERT INTO `entries` SET ?As', $entry);
-
     }
 
     public function updateItem($id, $task, $status)

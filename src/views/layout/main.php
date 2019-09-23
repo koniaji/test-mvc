@@ -9,7 +9,7 @@ $user = Application::$container->get('user');
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Test</title>
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/bootstrap/bootstrap.css?>">
 </head>

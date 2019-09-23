@@ -6,10 +6,6 @@ namespace App\core;
 
 class User
 {
-    public function __construct()
-    {
-    }
-
     public function login($email, $password)
     {
         $db = Application::$container->get('db');
