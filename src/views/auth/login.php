@@ -3,13 +3,13 @@
         <div class="col-md-6">
             <form method="post">
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input name="email"
-                           type="email" class="form-control"
+                    <label for="exampleInputEmail1">Login</label>
+                    <input name="login"
+                           type="text" class="form-control"
                            id="exampleInputEmail1"
                            aria-describedby="emailHelp"
                            required
-                           placeholder="Enter email">
+                           placeholder="Enter login">
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>

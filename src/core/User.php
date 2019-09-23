@@ -6,10 +6,10 @@ namespace App\core;
 
 class User
 {
-    public function login($email, $password)
+    public function login($username, $password)
     {
         $db = Application::$container->get('db');
-        $result = $db->query("SELECT * FROM `users` WHERE email = \"$email\" and password = \"$password\"")
+        $result = $db->query("SELECT * FROM `users` WHERE username = \"$username\" and password = \"$password\"")
             ->fetch_assoc();
         if (!empty($result)) {
             $this->startUserSession($result['id']);

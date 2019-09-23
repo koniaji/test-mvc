@@ -17,7 +17,7 @@ class AuthController extends Controller
         $request = Application::$container->get('request');
 
         if ($request->method() === 'POST') {
-            if ($user->login($request->post('email'), $request->post('password'))) {
+            if ($user->login($request->post('login'), $request->post('password'))) {
                 header("Location: http://" . $_SERVER['HTTP_HOST']);
             }
 
