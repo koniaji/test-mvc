@@ -1,0 +1,14 @@
+version: "2"
+services:
+  nginx:
+    build:
+        context: .
+        dockerfile: Nginx.Dockerfile
+    image: ${DOCKER_HUB_ORGANIZATION}/${DOCKER_HUB_PREFIX}nginx
+    environment:
+      - VIRTUAL_HOST=${BASE_DOMAIN}
+
+  fpm:
+      build: .
+      image: ${DOCKER_HUB_ORGANIZATION}/${DOCKER_HUB_PREFIX}fpm
+
