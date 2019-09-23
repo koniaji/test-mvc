@@ -25,7 +25,7 @@ class IndexController extends Controller
 
         return $this->view->render(APP_DIR . '/views/task/index.php', [
             'items' => $items,
-            'currentPage' => $request->get('page'),
+            'currentPage' => $request->get('page') ?: 1,
             'totalPages' => ceil($count / 3),
         ]);
     }

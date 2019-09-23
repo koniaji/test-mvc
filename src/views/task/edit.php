@@ -6,6 +6,7 @@
                     <label for="exampleFormControlTextarea1">Task</label>
                     <textarea name="task"
                               class=" form-control"
+                              required
                               id="exampleFormControlTextarea1"
                               rows="3"><?= $item['task'] ?></textarea>
                 </div>

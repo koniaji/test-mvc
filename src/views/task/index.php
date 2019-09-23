@@ -34,45 +34,52 @@ $user = Application::$container->get('user');
 <div class="row">
     <div class="container">
         <div class="col-md-12">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col"><a href="<?= createSortUrl('name') ?>">Name</a></th>
-                    <th scope="col"><a href="<?= createSortUrl('email') ?>">Email</a></th>
-                    <th scope="col">Task</th>
-                    <th scope="col"><a href="<?= createSortUrl('status') ?>">Status</a></th>
-                    <?php if ($user->getId()): ?>
-                        <th scope="col">Control</th>
-                    <?php endif; ?>
-                </tr>
-                </thead>
-                <tbody>
-                <?php foreach ($items as $item): ?>
+            <p></p>
+            <a href="/index/create">
+                <button class="btn btn-info">Create</button>
+            </a>
+            <p></p>
+            <div style="min-height: 230px">
+                <table class="table">
+                    <thead>
                     <tr>
-                        <th scope="row"><?= $item['id'] ?></th>
-                        <td><?= $item['name'] ?></td>
-                        <td><?= $item['email'] ?></td>
-                        <td><?= $item['task'] ?></td>
-                        <td>
-                            <?= $item['is_edit'] ? '<div class="btn btn-info btn-sm">Отредактировано</div>' : null ?>
-                            <?= $item['status'] ? '<div class="btn btn-success btn-sm">Выполнено</div>' :
-                                '<div class="btn btn-warning btn-sm">Невыполнено</div>' ?>
-                        </td>
+                        <th scope="col">#</th>
+                        <th scope="col"><a href="<?= createSortUrl('name') ?>">Name</a></th>
+                        <th scope="col"><a href="<?= createSortUrl('email') ?>">Email</a></th>
+                        <th scope="col">Task</th>
+                        <th scope="col"><a href="<?= createSortUrl('status') ?>">Status</a></th>
                         <?php if ($user->getId()): ?>
-                            <td><a href="<?= "/index/edit?id=" . $item['id'] ?>">Edit</a></td>
+                            <th scope="col">Control</th>
                         <?php endif; ?>
                     </tr>
-                <?php endforeach; ?>
-                </tbody>
-            </table>
-
-            <?php if (isset($totalPages)): ?>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($items as $item): ?>
+                        <tr>
+                            <th scope="row"><?= $item['id'] ?></th>
+                            <td><?= $item['name'] ?></td>
+                            <td><?= $item['email'] ?></td>
+                            <td><?= $item['task'] ?></td>
+                            <td>
+                                <?= $item['is_edit'] ? '<div class="btn btn-info btn-sm">Edited</div>' : null ?>
+                                <?= $item['status'] ? '<div class="btn btn-success btn-sm">Completed</div>' :
+                                    '<div class="btn btn-warning btn-sm">Not completed</div>' ?>
+                            </td>
+                            <?php if ($user->getId()): ?>
+                                <td><a href="<?= "/index/edit?id=" . $item['id'] ?>">Edit</a></td>
+                            <?php endif; ?>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+            <?php if ($totalPages > 1): ?>
                 <nav aria-label="Page navigation example">
                     <ul class="pagination">
                         <?php if ($currentPage > 1): ?>
                             <li class="page-item">
-                                <a class="page-link" href="<?= createPageUrl($currentPage - 1) ?>" aria-label="Previous">
+                                <a class="page-link" href="<?= createPageUrl($currentPage - 1) ?>"
+                                   aria-label="Previous">
                                     <span aria-hidden="true">&laquo;</span>
                                 </a>
                             </li>
@@ -94,7 +101,6 @@ $user = Application::$container->get('user');
                     </ul>
                 </nav>
             <?php endif; ?>
-
         </div>
     </div>
 </div>
