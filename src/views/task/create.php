@@ -32,3 +32,8 @@
         </div>
     </div>
 </div>
+<?php if ($success): ?>
+    <script>
+      alert("Entry successfully added\n")
+    </script>
+<?php endif; ?>

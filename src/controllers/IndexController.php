@@ -41,6 +41,8 @@ class IndexController extends Controller
                 $request->post('email'),
                 $request->post('task')
             );
+
+            return $this->view->render(APP_DIR . '/views/task/create.php', ['success' => true]);
         }
 
         return $this->view->render(APP_DIR . '/views/task/create.php');
