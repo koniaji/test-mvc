@@ -57,9 +57,9 @@ $user = Application::$container->get('user');
                     <?php foreach ($items as $item): ?>
                         <tr>
                             <th scope="row"><?= $item['id'] ?></th>
-                            <td><?= $item['name'] ?></td>
-                            <td><?= $item['email'] ?></td>
-                            <td><?= $item['task'] ?></td>
+                            <td><?= htmlspecialchars($item['name']) ?></td>
+                            <td><?= htmlspecialchars($item['email']) ?></td>
+                            <td><?= htmlspecialchars($item['task']) ?></td>
                             <td>
                                 <?= $item['is_edit'] ? '<div class="btn btn-info btn-sm">Edited</div>' : null ?>
                                 <?= $item['status'] ? '<div class="btn btn-success btn-sm">Completed</div>' :
